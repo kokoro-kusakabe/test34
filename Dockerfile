@@ -7,5 +7,8 @@ RUN apt-get update && apt-get install -y \
     yarn
 
 WORKDIR /test34
-COPY Gemfile Gemfile.lock /test34/
+ADD Gemfile /test34/Gemfile
+ADD Gemfile.lock /test34/Gemfile.lock
+
+RUN gem install bundler
 RUN bundle install
