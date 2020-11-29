@@ -4,7 +4,7 @@ volumes:
   db-data:
 
 services:
-  web:
+  app:
     build: .
     ports:
       - '3000:3000'

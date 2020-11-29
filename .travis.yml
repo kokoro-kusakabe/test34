@@ -9,7 +9,8 @@ before_install:
 script:
   - docker-compose exec --env 'RAILS_ENV=test' web rails db:create
   - docker-compose exec --env 'RAILS_ENV=test' web rails db:migrate
-  - docker-compose exec --env 'RAILS_ENV=test' web rails test
+  - docker-compose exec --env 'RAILS_ENV=test' app rails db:seed
+  - docker-compose exec --env 'RAILS_ENV=test' app bundle exec rspec spec/models/user_spec.rb
 
 deploy:
   provider: script
